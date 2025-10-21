@@ -1,0 +1,42 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "vehicle-fee-api", "vehicle-fee-api", "{E6F13897-9895-5058-D32B-BD0D57DEF13B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3E7784A5-4834-A6EC-5D57-DC2E508BF707}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleFeeApi", "vehicle-fee-api\src\VehicleFeeApi\VehicleFeeApi.csproj", "{6C1FDBE4-C289-F264-ECA3-E88972392E3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7A43EB56-E880-3484-7C40-67974DDB748F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleFeeApi.Tests", "vehicle-fee-api\tests\VehicleFeeApi.Tests\VehicleFeeApi.Tests.csproj", "{562079A9-826B-02D0-B987-A48070684DE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C1FDBE4-C289-F264-ECA3-E88972392E3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C1FDBE4-C289-F264-ECA3-E88972392E3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C1FDBE4-C289-F264-ECA3-E88972392E3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C1FDBE4-C289-F264-ECA3-E88972392E3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{562079A9-826B-02D0-B987-A48070684DE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{562079A9-826B-02D0-B987-A48070684DE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{562079A9-826B-02D0-B987-A48070684DE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{562079A9-826B-02D0-B987-A48070684DE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3E7784A5-4834-A6EC-5D57-DC2E508BF707} = {E6F13897-9895-5058-D32B-BD0D57DEF13B}
+		{6C1FDBE4-C289-F264-ECA3-E88972392E3F} = {3E7784A5-4834-A6EC-5D57-DC2E508BF707}
+		{7A43EB56-E880-3484-7C40-67974DDB748F} = {E6F13897-9895-5058-D32B-BD0D57DEF13B}
+		{562079A9-826B-02D0-B987-A48070684DE7} = {7A43EB56-E880-3484-7C40-67974DDB748F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21D21C97-A45C-4ED9-BD5A-5AE0B2492FA6}
+	EndGlobalSection
+EndGlobal
