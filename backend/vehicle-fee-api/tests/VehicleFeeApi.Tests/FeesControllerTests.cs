@@ -20,9 +20,9 @@ namespace VehicleFeeApi.Tests
         }
 
         [Fact]
-        public async Task CalculateFees_ReturnsCorrectFees_ForCommonVehicle()
+        public void CalculateFees_ReturnsCorrectFees_ForCommonVehicle()
         {
-            // Arrange
+            // Arrangeen
             var request = new CalculateFeesRequest { BasePrice = 10000, VehicleType = "Common" };
             var expectedResult = new FeeResult
             {
@@ -34,7 +34,7 @@ namespace VehicleFeeApi.Tests
             _mockCalculator.Setup(c => c.CalculateFees(request)).Returns(expectedResult);
 
             // Act
-            var result = await _controller.CalculateFees(request);
+            var result = _controller.CalculateFees(request);
 
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
@@ -46,7 +46,7 @@ namespace VehicleFeeApi.Tests
         }
 
         [Fact]
-        public async Task CalculateFees_ReturnsCorrectFees_ForLuxuryVehicle()
+        public void CalculateFees_ReturnsCorrectFees_ForLuxuryVehicle()
         {
             // Arrange
             var request = new CalculateFeesRequest { BasePrice = 20000, VehicleType = "Luxury" };
@@ -60,7 +60,7 @@ namespace VehicleFeeApi.Tests
             _mockCalculator.Setup(c => c.CalculateFees(request)).Returns(expectedResult);
 
             // Act
-            var result = await _controller.CalculateFees(request);
+            var result = _controller.CalculateFees(request);
 
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
@@ -72,13 +72,13 @@ namespace VehicleFeeApi.Tests
         }
 
         [Fact]
-        public async Task CalculateFees_ReturnsBadRequest_ForInvalidVehicleType()
+        public void CalculateFees_ReturnsBadRequest_ForInvalidVehicleType()
         {
             // Arrange
             var request = new CalculateFeesRequest { BasePrice = 10000, VehicleType = "InvalidType" };
 
             // Act
-            var result = await _controller.CalculateFees(request);
+            var result = _controller.CalculateFees(request);
 
             // Assert
             var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
