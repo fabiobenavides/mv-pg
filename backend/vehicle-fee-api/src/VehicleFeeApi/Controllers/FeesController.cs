@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using VehicleFeeApi.Interfaces;
 using VehicleFeeApi.Models;
 using VehicleFeeApi.Services;
+using VehicleFeeApi.DTOs;
 
 namespace VehicleFeeApi.Controllers
 {
@@ -17,7 +17,7 @@ namespace VehicleFeeApi.Controllers
         }
 
         [HttpPost("calculate-fees")]
-        public ActionResult<FeeResult> CalculateFees([FromBody] CalculateFeesRequest request)
+        public ActionResult<FeeResultDto> CalculateFees([FromBody] CalculateFeesRequest request)
         {
             if (request == null || request.BasePrice <= 0)
             {
@@ -25,7 +25,17 @@ namespace VehicleFeeApi.Controllers
             }
 
             var result = _vehicleFeeService.CalculateFees(request);
-            return Ok(result);
+
+            // From model to DTO mapping
+            var resultDto = new FeeResultDto
+            {
+                BuyerFee = result.BuyerFee,
+                SellerFee = result.SellerFee,
+                AssociationFee = result.AssociationFee,
+                StorageFee = result.StorageFee
+            };
+
+            return Ok(resultDto);
         }
     }
 }

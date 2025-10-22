@@ -1,11 +1,18 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using VehicleFeeApi.Services;
+using VehicleFeeApi.Factories;
+using VehicleFeeApi.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+
+// Register Vehicle Fee services
+builder.Services.AddScoped<IVehicleFeeCalculatorFactory, VehicleFeeCalculatorFactory>();
+builder.Services.AddScoped<VehicleFeeService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
