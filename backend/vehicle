@@ -1,0 +1,8 @@
+
+namespace VehicleFeeApi.Interfaces
+{
+    public interface ICalculateBuyerFee
+    {
+        decimal CalculateFee(decimal basePrice);
+    }
+}

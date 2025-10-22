@@ -6,7 +6,7 @@ namespace VehicleFeeApi.Factories
 {
     public class VehicleFeeCalculatorFactory
     {
-        public IVehicleFeeCalculator CreateCalculator(string vehicleType)
+        public ICalculateFee CreateCalculator(string vehicleType)
         {
             return vehicleType.ToLower() switch
             {

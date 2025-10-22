@@ -9,9 +9,9 @@ namespace VehicleFeeApi.Controllers
     [Route("[controller]")]
     public class FeesController : ControllerBase
     {
-        private readonly IVehicleFeeCalculator _vehicleFeeService;
+        private readonly VehicleFeeService _vehicleFeeService;
 
-        public FeesController(IVehicleFeeCalculator vehicleFeeService)
+        public FeesController(VehicleFeeService vehicleFeeService)
         {
             _vehicleFeeService = vehicleFeeService;
         }

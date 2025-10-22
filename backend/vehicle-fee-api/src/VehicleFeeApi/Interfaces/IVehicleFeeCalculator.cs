@@ -4,6 +4,6 @@ namespace VehicleFeeApi.Interfaces
 {
     public interface IVehicleFeeCalculator
     {
-        FeeResult CalculateFees(CalculateFeesRequest request);
+        FeeResult CalculateFees();
     }
 }

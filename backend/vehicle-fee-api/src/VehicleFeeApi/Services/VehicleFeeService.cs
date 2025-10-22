@@ -1,6 +1,7 @@
+using VehicleFeeApi.Calculators;
+using VehicleFeeApi.Factories;
 using VehicleFeeApi.Interfaces;
 using VehicleFeeApi.Models;
-using VehicleFeeApi.Factories;
 
 namespace VehicleFeeApi.Services
 {
@@ -15,8 +16,9 @@ namespace VehicleFeeApi.Services
 
         public FeeResult CalculateFees(CalculateFeesRequest request)
         {
-            var calculator = _factory.CreateCalculator(request.VehicleType);
-            return calculator.CalculateFees(request);
+            var feeCalculator = _factory.CreateCalculator(request.VehicleType);
+            var calculator = new VehicleFeeCalculator(feeCalculator, request.BasePrice);
+            return calculator.CalculateFees();
         }
     }
 }
