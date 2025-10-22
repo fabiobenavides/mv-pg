@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleFeeApi", "vehicle-fe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7A43EB56-E880-3484-7C40-67974DDB748F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleFeeApil.Tests", "vehicle-fee-api\tests\VehicleFeeApil.Tests\VehicleFeeApil.Tests.csproj", "{D41D1D88-7A3F-4A65-B10B-7D96A30B4A2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleFeeApi.Tests", "vehicle-fee-api\tests\VehicleFeeApil.Tests\VehicleFeeApi.Tests.csproj", "{D41D1D88-7A3F-4A65-B10B-7D96A30B4A2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
