@@ -1,20 +1,18 @@
 using System;
 using VehicleFeeApi.Calculators;
 using VehicleFeeApi.Interfaces;
+using VehicleFeeApi.Enums;
 
 namespace VehicleFeeApi.Factories
 {
     public class VehicleFeeCalculatorFactory : IVehicleFeeCalculatorFactory
     {
-        private const string CommonVehicleType = "common";
-        private const string LuxuryVehicleType = "luxury";
-
-        public ICalculateFee CreateCalculator(string vehicleType)
+        public ICalculateFee CreateCalculator(VehicleType vehicleType)
         {
-            return vehicleType.ToLower() switch
+            return vehicleType switch
             {
-                CommonVehicleType => new CommonVehicleFeeCalculator(),
-                LuxuryVehicleType => new LuxuryVehicleFeeCalculator(),
+                VehicleType.Common => new CommonVehicleFeeCalculator(),
+                VehicleType.Luxury => new LuxuryVehicleFeeCalculator(),
                 _ => throw new ArgumentException("Invalid vehicle type", nameof(vehicleType))
             };
         }

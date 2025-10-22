@@ -4,11 +4,17 @@ using Microsoft.Extensions.Hosting;
 using VehicleFeeApi.Services;
 using VehicleFeeApi.Factories;
 using VehicleFeeApi.Interfaces;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options => 
+    {
+      options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
+    });
 
 // Register Vehicle Fee services
 builder.Services.AddScoped<IVehicleFeeCalculatorFactory, VehicleFeeCalculatorFactory>();

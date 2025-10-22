@@ -1,5 +1,10 @@
-public class CalculateFeesRequest
+using VehicleFeeApi.Enums;
+
+namespace VehicleFeeApi.Models
 {
-    public decimal BasePrice { get; set; }
-    public string VehicleType { get; set; }
+    public class CalculateFeesRequest
+    {
+        public decimal BasePrice { get; set; }
+        public VehicleType VehicleType { get; set; }
+    }
 }

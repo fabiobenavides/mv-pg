@@ -1,8 +1,9 @@
+using VehicleFeeApi.Enums;
 
 namespace VehicleFeeApi.Interfaces
 {
-    public interface IVehicleFeeCalculatorFactory
+  public interface IVehicleFeeCalculatorFactory
     {
-        ICalculateFee CreateCalculator(string vehicleType);
+        ICalculateFee CreateCalculator(VehicleType vehicleType);
     }
 }
