@@ -103,11 +103,11 @@ export default {
         };
 
         this.result = {
-          buyerFee: Number(get(data, 'buyerFee', 'buyer_fee', 'buyer_fee_amount', 'buyerFeeAmount')) || 0,
-          sellerFee: Number(get(data, 'sellerFee', 'seller_fee', 'sellerFeeAmount')) || 0,
-          associationFee: Number(get(data, 'associationFee', 'association_fee')) || 0,
-          storageFee: Number(get(data, 'storageFee', 'storage_fee')) || 0,
-          totalFees: Number(get(data, 'totalFees', 'totalFees', 'total_fees')) || 0,
+          buyerFee: Number(get(data, 'buyerFee')) || 0,
+          sellerFee: Number(get(data, 'sellerFee')) || 0,
+          associationFee: Number(get(data, 'associationFee')) || 0,
+          storageFee: Number(get(data, 'storageFee')) || 0,
+          totalFees: Number(get(data, 'totalFees')) || 0,
         };
         this.result.total = this.basePrice + this.result.totalFees;
 
