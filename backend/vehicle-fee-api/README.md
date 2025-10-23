@@ -8,35 +8,6 @@ The Vehicle Fee API is a C# web API designed to calculate various fees associate
 - Implements a factory pattern to create specific fee calculators based on vehicle type.
 - Follows best practices for API development in C#.
 
-## Project Structure
-```
-vehicle-fee-api
-├── src
-│   └── VehicleFeeApi
-│       ├── VehicleFeeApi.csproj
-│       ├── Program.cs
-│       ├── appsettings.json
-│       ├── Controllers
-│       │   └── FeesController.cs
-│       ├── Interfaces
-│       │   └── IVehicleFeeCalculator.cs
-│       ├── Factories
-│       │   └── VehicleFeeCalculatorFactory.cs
-│       ├── Calculators
-│       │   ├── CommonVehicleFeeCalculator.cs
-│       │   └── LuxuryVehicleFeeCalculator.cs
-│       ├── Services
-│       │   └── VehicleFeeService.cs
-│       └── Models
-│           ├── CalculateFeesRequest.cs
-│           └── FeeResult.cs
-├── tests
-│   └── VehicleFeeApi.Tests
-│       ├── VehicleFeeApi.Tests.csproj
-│       └── FeesControllerTests.cs
-├── .gitignore
-└── README.md
-```
 
 ## Setup Instructions
 1. Clone the repository:
