@@ -6,6 +6,7 @@ using VehicleFeeApi.Factories;
 using VehicleFeeApi.Interfaces;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +16,11 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend", 
       policy =>
         {
-            policy.WithOrigins("http://localhost:5173")
+            var allowedOrigins = builder.Configuration
+                .GetSection("AllowedOrigins")
+                .Get<string[]>();
+
+            policy.WithOrigins(allowedOrigins ?? new[] { "http://localhost:5173" })
                 .AllowAnyMethod()
                 .AllowAnyHeader()
                 .AllowCredentials();

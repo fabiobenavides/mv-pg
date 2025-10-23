@@ -37,8 +37,8 @@ coverage*.xml
 *.sln.iml
 
 # ASP.NET / Azure / local settings
-appsettings*.json
-appsettings.Development.json
+#appsettings*.json
+#appsettings.Development.json
 App_Data/
 .local.settings.json
 secrets.json
