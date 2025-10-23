@@ -22,7 +22,7 @@
         <option value="luxury">Luxury</option>
       </select>
     </div>
-
+ 
     <div class="actions">
       <button @click="onCalculate" :disabled="loading || !isValid">
         {{ loading ? 'Calculating...' : 'Calculate' }}
@@ -35,10 +35,11 @@
       <h3>Results</h3>
       <ul>
         <li>Buyer fee: <strong>{{ formatCurrency(result.buyerFee) }}</strong></li>
-        <li>Seller's special fee: <strong>{{ formatCurrency(result.sellerSpecialFee) }}</strong></li>
+        <li>Seller's special fee: <strong>{{ formatCurrency(result.sellerFee) }}</strong></li>
         <li>Association fee: <strong>{{ formatCurrency(result.associationFee) }}</strong></li>
         <li>Storage fee: <strong>{{ formatCurrency(result.storageFee) }}</strong></li>
-        <li>Total: <strong>{{ formatCurrency(result.total) }}</strong></li>
+        <li>Total fees: <strong>{{ formatCurrency(result.totalFees) }}</strong></li>
+        <li>Total : <strong>{{ formatCurrency(result.total) }}</strong></li>
       </ul>
     </div>
   </div>
@@ -63,7 +64,24 @@ export default {
       return this.basePrice !== null && this.basePrice >= 0 && this.vehicleType !== '';
     }
   },
+  watch: {
+    // it executes every time the base price changes
+    basePrice(newVal, oldVal) {
+      this.triggerAutoCalculate();
+    },
+    // it executes every time the vehicle type changes
+    vehicleType(newVal, oldVal) {
+      this.triggerAutoCalculate();
+    }
+  },
   methods: {
+    triggerAutoCalculate() {
+      if (this.isValid) {
+        this.onCalculate();
+      } else {
+        this.result = null; // clear previous result if inputs are invalid
+      }
+    },
     async onCalculate() {
       if (!this.isValid) {
         this.error = 'Please enter a valid total price and select a vehicle type.';
@@ -86,11 +104,13 @@ export default {
 
         this.result = {
           buyerFee: Number(get(data, 'buyerFee', 'buyer_fee', 'buyer_fee_amount', 'buyerFeeAmount')) || 0,
-          sellerSpecialFee: Number(get(data, 'sellerSpecialFee', 'seller_special_fee', 'sellerSpecialFeeAmount')) || 0,
+          sellerFee: Number(get(data, 'sellerFee', 'seller_fee', 'sellerFeeAmount')) || 0,
           associationFee: Number(get(data, 'associationFee', 'association_fee')) || 0,
           storageFee: Number(get(data, 'storageFee', 'storage_fee')) || 0,
-          total: Number(get(data, 'total', 'grandTotal', 'grand_total')) || 0
+          totalFees: Number(get(data, 'totalFees', 'totalFees', 'total_fees')) || 0,
         };
+        this.result.total = this.basePrice + this.result.totalFees;
+
       } catch (err) {
         this.error = err && err.message ? err.message : 'An error occurred while calculating fees.';
       } finally {
